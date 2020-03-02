@@ -10,6 +10,25 @@ body{
 }
 .container{
     background-color: aquamarine;
-    margin-top: 25%;
-    padding: 50px
+    margin-top: 30px;
+    width: 800px;
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.btn-grid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn{
+    background-color: peachpuff;
+    color: black;
+}
+
+.btn:hover{
+    border-color: black;
 }
