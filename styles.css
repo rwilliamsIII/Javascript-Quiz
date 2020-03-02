@@ -32,3 +32,15 @@ body{
 .btn:hover{
     border-color: black;
 }
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn, .next-btn{
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
