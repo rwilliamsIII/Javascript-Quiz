@@ -8,9 +8,16 @@ body{
     align-items: center;
     background-color: grey;
 }
+
+.header{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
 .container{
     background-color: aquamarine;
-    margin-top: 30px;
+    margin-top: 30%;
     width: 800px;
     max-width: 80%;
     padding: 20px;
@@ -27,6 +34,7 @@ body{
 .btn{
     background-color: peachpuff;
     color: black;
+    font-size: 24px;
 }
 
 .btn:hover{

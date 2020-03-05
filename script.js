@@ -1,10 +1,11 @@
 var startButton = document.getElementById("start-btn")
+var nextButton = document.getElementById("next-button")
 var questionBox = document.getElementById("question-box")
 var questionElement = document.getElementById("question")
 var answerButtonsElement = document.getElementById("answer-buttons")
 let shuffledQuestions, currentQuestionIndex
 var secondsLeft = 10;
-
+var timeText = document.getElementById("timer")
 var questions = [
     {
         question: 'What is Javascript?',
@@ -72,7 +73,7 @@ var questions = [
 ]
 
 startButton.addEventListener("click", startGame)
-
+nextButton.addEventListener("click", showQuestion)
 
 
 
@@ -83,6 +84,7 @@ function startGame() {
     currentQuestionIndex = 0
     
     nextQuestion()
+    adjTimer()
 }
 
 function nextQuestion() {
@@ -91,9 +93,21 @@ function nextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-    answerButtonsElement.innerText = questions.answers
+    answerButtonsElement.innerText = question.potential_answers
 }
 
 function selectAnswer() {
 
+}
+
+function adjTimer () {
+    timeText.innerText = time;
+    if(time <= 0){
+        return window.location.assign("timeup.html")
+    }
+    else {
+        time = time -1;
+        seconds = parseInt(time%60);
+        setTimeout("adjTimer()", 1000);
+    }
 }
