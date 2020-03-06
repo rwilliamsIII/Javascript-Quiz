@@ -93,7 +93,7 @@ function nextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-    answerButtonsElement.innerText = question.potential_answers
+    answerButtonsElement.innerText = questions.potential_answers.answer
 }
 
 function selectAnswer() {
