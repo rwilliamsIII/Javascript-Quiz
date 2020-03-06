@@ -6,6 +6,7 @@ var answerButtonsElement = document.getElementById("answer-buttons")
 let shuffledQuestions, currentQuestionIndex
 var secondsLeft = 10;
 var timeText = document.getElementById("timer")
+var highScore = ""
 var questions = [
     {
         question: 'What is Javascript?',
@@ -86,6 +87,20 @@ function startGame() {
     nextQuestion()
     adjTimer()
 }
+
+const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+    if (classToApply === 'correct') {
+        incrementScore(correctAdd);
+        
+    }
+
+//function to increment score
+function incrementScore(num) {
+    score += num;
+    scoreText.innerText = score;
+};
+
 
 function nextQuestion() {
     showQuestion(shuffledQuestions[currentQuestionIndex])
