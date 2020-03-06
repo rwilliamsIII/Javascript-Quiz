@@ -85,7 +85,6 @@ function startGame() {
     currentQuestionIndex = 0
     
     nextQuestion()
-    adjTimer()
 }
 
 const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
@@ -108,21 +107,29 @@ function nextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-    answerButtonsElement.innerText = questions.potential_answers.answer
+    answerButtonsElement.innerText = questions.potential_answers.id.answer
 }
 
 function selectAnswer() {
 
 }
 
-function adjTimer () {
-    timeText.innerText = time;
-    if(time <= 0){
-        return window.location.assign("timeup.html")
-    }
-    else {
-        time = time -1;
-        seconds = parseInt(time%60);
-        setTimeout("adjTimer()", 1000);
-    }
+function quizTimer() {
+
+    timeInterval = setInterval(function() {
+      timerEl.textContent = timeLeft + " seconds remaining";
+      timeLeft--;
+  
+      if (timeLeft === 0) {
+        // timerEl.textContent = "";
+        // clearInterval(timeInterval);
+        endGame();
+      }
+
+    }, 1000);
+
+
 }
+
+//Calls the timer to pop up right when the page opens
+quizTimer();
